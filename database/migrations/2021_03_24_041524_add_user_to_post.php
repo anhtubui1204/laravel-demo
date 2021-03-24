@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColToPostsTable extends Migration
+class AddUserToPost extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddColToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table -> tinyInteger('is_admin')->default('0');
+           $table->integer('user_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddColToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table -> dropColumn('is_admin');
+            $table->dropColumn('user_id');
         });
     }
 }
