@@ -98,3 +98,21 @@ Route::get('/post/{id}/user', function ($id){
     $user = Post::find($id)->user;
    return  $user;
 });
+
+Route::get('/user/country', function (){
+    $country = Country::find(5);
+
+    foreach ($country->posts as $post){
+        return $post->title;
+    }
+});
+
+//Polymorphic relations
+
+Route::get('user/photos',function (){
+    $user = User::find(1);
+
+    foreach ($user->photos as $photo){
+        return $photo;
+    }
+});
